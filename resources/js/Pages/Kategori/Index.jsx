@@ -7,8 +7,15 @@ import Layout from '../../Layouts/Default';
 //import Link
 import { Link } from '@inertiajs/inertia-react';
 
-export default function KategoriIndex({ kategori, session }) {
+//import inertia adapter
+import { Inertia } from '@inertiajs/inertia';
 
+
+export default function KategoriIndex({ kategori, session }) {
+ //method deletePost
+ const deleteKategori = async (id) => {
+    Inertia.delete(`/kategori/${id}`);
+}
   return (
     <Layout>
         <div style={{ marginTop: '100px' }}>
@@ -37,6 +44,7 @@ export default function KategoriIndex({ kategori, session }) {
                                 <td>{ kat.slug }</td>
                                 <td className="text-center">
                                 <Link href={`/kategori/${kat.id}/edit`} className="btn btn-sm btn-primary me-2">EDIT</Link>
+                                <button onClick={() => deleteKategori(kat.id)} className="btn btn-sm btn-danger">DELETE</button>
 
                                 </td>
                             </tr>
