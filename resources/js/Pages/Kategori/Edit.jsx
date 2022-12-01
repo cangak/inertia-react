@@ -14,7 +14,7 @@ export default function EditKategori({ errors ,kat}) {
     const updateKategori = async (e) => {
         e.preventDefault();
 
-        Inertia.put('/kategori/${kat.id}', {
+        Inertia.put(`/kategori/${kat.id}`, {
             kategori: kategori,
         });
     }

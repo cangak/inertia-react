@@ -73,4 +73,12 @@ class KategoriController extends Controller
         //redirect
         return redirect()->route('kategori.index')->with('success', 'Data Berhasil Diupdate!');
     }
+    public function destroy(Kategori $kategori)
+    {
+        //delete kategori
+        $kategori->delete();
+
+        //redirect
+        return redirect()->route('kategori.index')->with('success', 'Data Berhasil Dihapus!');
+    }
 }
